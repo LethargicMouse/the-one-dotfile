@@ -39,7 +39,18 @@
     };
   };
 
+  xdg = {
+    autostart.enable = true;
+    portal = {
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal
+      ];
+    };
+  };
+
   services = {
+    gnome.gnome-keyring.enable = true;
     xserver = {
       dpi = 180;
       xkb = {
@@ -480,7 +491,7 @@
         windowrule = [
           "suppressevent maximize, class:.*"
           # magic
-          # "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+          "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
         ];
       };
     };
@@ -566,6 +577,7 @@
     vulkan-headers
     vulkan-loader
     lshw
+    github-desktop
   ];
 
   console.useXkbConfig = true;
